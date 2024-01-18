@@ -1,0 +1,60 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 200;
+    padding: 20;
+    background-color: rgb(86, 86, 164);
+}
+
+ul#films {
+    list-style-type: none;
+    padding: 10;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul#films li {
+    margin: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+ul#films li:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 10px;
+}
+
+.film-poster {
+    max-width: 2px; 
+    height: auto;
+    border-radius: 5px;
+}
+
+.film-details {
+    padding: 10px;
+}
+
+.film-details h3 {
+    margin-top: 0;
+}
+
+button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

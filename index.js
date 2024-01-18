@@ -1,17 +1,17 @@
+
 document.addEventListener('DOMContentLoaded', function () {
-  // Fetch all films and populate the film list
   fetch('http://127.0.0.1:3000/films')
       .then(response => response.json())
       .then(films => {
           const filmsList = document.getElementById('films');
-          filmsList.innerHTML = ''; // Clear placeholder
+          filmsList.innerHTML = ''; 
 
           films.forEach(film => {
-              // Fetch film details for each film
+              
               fetchFilmDetails(film.id);
 
               const listItem = document.createElement('li');
-              listItem.classList.add('film', 'item', 'grid-item'); // Add 'grid-item' class
+              listItem.classList.add('film', 'item', 'grid-item'); 
               listItem.innerHTML = `
                   <div class="grid-container">
                       <img src="${film.poster}" alt="${film.title}" class="film-poster">
@@ -44,7 +44,7 @@ function fetchFilmDetails(filmId) {
           const availableTickets = film.capacity - film.tickets_sold;
 
           const filmDetailsContainer = document.getElementById(`filmDetails-${film.id}`);
-          // Append the new content to the existing content
+          
           filmDetailsContainer.innerHTML = `
               <li><strong>Runtime:</strong> ${film.runtime} minutes</li>
               <li><strong>Showtime:</strong> ${film.showtime}</li>
@@ -60,11 +60,11 @@ function buyTicket(filmId, ticketsSold, capacity) {
   const availableTickets = capacity - ticketsSold;
 
   if (availableTickets > 0) {
-      // Decreases the available tickets and updates the frontend
+      
       const updatedTicketsSold = ticketsSold + 1;
 
       fetch(`http://127.0.0.1:3000/films/${filmId}`, {
-          method: 'PATCH', // Assuming you have an endpoint to update tickets_sold
+          method: 'PATCH', 
           headers: {
               'Content-Type': 'application/json',
           },
